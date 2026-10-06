@@ -1,0 +1,6 @@
+{
+  "name": "Give and Get",
+  "description": "Free B2B goods and services exchange platform for local businesses to trade equal-value business credits via secure single-use QR certificates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
