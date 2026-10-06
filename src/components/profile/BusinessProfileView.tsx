@@ -223,26 +223,44 @@ export const BusinessProfileView: React.FC<BusinessProfileViewProps> = ({
                 Looking For (Gets)
               </span>
               <ul className="space-y-2 text-xs text-slate-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Restaurant credit & team dining</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Catering for events</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Commercial Photography & Video</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Printing & Patient brochure marketing</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Clinic cleaning services</span>
-                </li>
+                {businessGets.length > 0 ? (
+                  businessGets.map((g) => (
+                    <li key={g.id} className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                      <span>{g.title} ({g.useType})</span>
+                    </li>
+                  ))
+                ) : business.id === 'tipsy-dumpling' ? (
+                  <>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                      <span>Chiropractic Services (Employee Wellness)</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                      <span>Food Photography & Instagram Video</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                      <span>Commercial Window Cleaning</span>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                      <span>Chinese Food & Restaurant Dining Credit</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                      <span>Commercial Photography & Video</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                      <span>Patient Brochure Printing & Signage</span>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>

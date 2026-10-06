@@ -204,10 +204,10 @@ export const INITIAL_GIVES: Give[] = [
   {
     id: 'give-tipsy-1',
     businessId: 'tipsy-dumpling',
-    title: 'Tipsy Dumpling Business Credit',
-    category: 'Restaurant / Food & Beverage',
+    title: 'Tipsy Dumpling Chinese Food & Dim Sum Credit',
+    category: 'Restaurant / Chinese Cuisine',
     description:
-      'Valid toward eligible artisan dim sum, Taiwanese specialties, appetizers, and beverages for dine-in or takeout at Tipsy Dumpling.',
+      'Valid toward eligible Chinese food, artisan handmade dim sum, dumplings, noodle specialties, and dining at Tipsy Dumpling.',
     amounts: [50, 100, 200, 300, 500],
     restrictions: 'Not redeemable for cash. Single-use certificate.',
     expirationPolicy: '90 days from issuance',
@@ -217,10 +217,10 @@ export const INITIAL_GIVES: Give[] = [
   {
     id: 'give-marin-spine-1',
     businessId: 'marin-spine',
-    title: 'Marin Spine and Wellness Service Credit',
+    title: 'Marin Spine and Wellness Chiropractic Service Credit',
     category: 'Chiropractic / Healthcare',
     description:
-      'Use toward eligible chiropractic appointments, spinal decompression sessions, and posture therapy treatments.',
+      'Use toward eligible chiropractic appointments, spinal adjustments, posture therapy, and decompression treatments.',
     amounts: [50, 100, 200, 300, 500],
     restrictions: 'Appointment booking required. Single-use certificate.',
     expirationPolicy: '90 days from issuance',
@@ -298,9 +298,9 @@ export const INITIAL_GETS: Get[] = [
   {
     id: 'get-marin-spine-1',
     businessId: 'marin-spine',
-    title: 'Restaurant Credit',
-    rawText: 'Team dining and client gift credits for quality local Marin eateries.',
-    interpretedCategory: 'Restaurant',
+    title: 'Chinese Food & Restaurant Credit',
+    rawText: 'Team dining and client gift credits for quality local Chinese food, handmade dumplings, and dining in Marin.',
+    interpretedCategory: 'Chinese Restaurant',
     useType: 'Staff Appreciation & Lunches',
     locationArea: 'Marin County, CA',
     compatibleAmounts: [50, 100, 200, 300, 500],

@@ -108,6 +108,15 @@ function AppContent() {
 
         <div className="flex items-center gap-3">
           <button
+            onClick={() => setIsOnboardingOpen(true)}
+            className="px-2.5 py-1 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-1.5"
+          >
+            <Plus className="w-3.5 h-3.5 text-blue-400" />
+            <span className="hidden sm:inline">Sign Up Business</span>
+            <span className="sm:hidden">Sign Up</span>
+          </button>
+
+          <button
             onClick={switchActivePersona}
             className="px-2.5 py-1 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs"
             title="Switch business perspective to test dual-sided trade and acceptance"
@@ -183,6 +192,14 @@ function AppContent() {
 
           {/* Quick Terminal Button in Sidebar */}
           <div className="pt-2 border-t border-slate-100 space-y-2">
+            <button
+              onClick={() => setIsOnboardingOpen(true)}
+              className="w-full py-2.5 px-3 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center justify-center gap-1.5 border border-blue-200"
+            >
+              <Plus className="w-4 h-4 text-blue-600" />
+              Sign Up Business
+            </button>
+
             <button
               onClick={() => handleOpenScanner()}
               className="w-full py-2.5 px-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-xs"
@@ -331,6 +348,7 @@ function AppContent() {
                     onProposeExchange={(bId) => handleOpenProposal(bId)}
                     onOpenScanner={() => handleOpenScanner()}
                     onNavigate={(tab) => setActiveTab(tab)}
+                    onOpenSignUp={() => setIsOnboardingOpen(true)}
                   />
                 )}
 

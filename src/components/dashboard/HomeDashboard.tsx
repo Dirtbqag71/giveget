@@ -22,6 +22,7 @@ interface HomeDashboardProps {
   onProposeExchange: (businessId: string) => void;
   onOpenScanner: () => void;
   onNavigate: (tab: string) => void;
+  onOpenSignUp?: () => void;
 }
 
 export const HomeDashboard: React.FC<HomeDashboardProps> = ({
@@ -30,6 +31,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
   onProposeExchange,
   onOpenScanner,
   onNavigate,
+  onOpenSignUp,
 }) => {
   const {
     currentBusiness,
@@ -79,11 +81,21 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
           </p>
         </div>
 
-        {/* Quick Merchant Terminal Action Button */}
+        {/* Action Buttons */}
         <div className="flex items-center gap-2.5">
+          {onOpenSignUp && (
+            <button
+              onClick={onOpenSignUp}
+              className="px-3.5 py-2.5 bg-white border border-slate-200 hover:border-blue-300 hover:bg-slate-50 text-slate-700 font-semibold text-xs sm:text-sm rounded-xl transition-all shadow-2xs flex items-center gap-1.5 cursor-pointer"
+            >
+              <Plus className="w-4 h-4 text-blue-600" />
+              Sign Up Business
+            </button>
+          )}
+
           <button
             onClick={onOpenScanner}
-            className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-sm rounded-xl transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+            className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-xs sm:text-sm rounded-xl transition-all shadow-xs flex items-center gap-2 cursor-pointer"
           >
             <ScanLine className="w-4 h-4" />
             Merchant QR Scanner
@@ -232,32 +244,46 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                    They Give
+                    They Give ({partnerBusiness.name})
                   </span>
                   <p className="text-xs font-bold text-slate-900 mt-0.5">
-                    Chiropractic Services
+                    {partnerBusiness.id === 'tipsy-dumpling'
+                      ? 'Chinese Food & Dim Sum Credit'
+                      : 'Chiropractic Services'}
                   </p>
-                  <p className="text-[11px] text-slate-500">Matches your active Get</p>
+                  <p className="text-[11px] text-slate-500">
+                    {partnerBusiness.id === 'tipsy-dumpling'
+                      ? 'Handmade dim sum & authentic cuisine'
+                      : 'Spinal adjustments & wellness care'}
+                  </p>
                 </div>
 
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
-                    They Want
+                    They Want ({partnerBusiness.name})
                   </span>
                   <p className="text-xs font-bold text-slate-900 mt-0.5">
-                    Restaurant Credit
+                    {partnerBusiness.id === 'tipsy-dumpling'
+                      ? 'Chiropractic & Wellness Services'
+                      : 'Chinese Food / Restaurant Credit'}
                   </p>
-                  <p className="text-[11px] text-slate-500">Looking for quality dining</p>
+                  <p className="text-[11px] text-slate-500">
+                    {partnerBusiness.id === 'tipsy-dumpling'
+                      ? 'For employee physical health'
+                      : 'For staff dining & team meals'}
+                  </p>
                 </div>
 
                 <div className="p-3 bg-blue-50/60 rounded-xl border border-blue-100">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 block">
-                    You Offer
+                    You Offer ({currentBusiness.name})
                   </span>
                   <p className="text-xs font-bold text-slate-900 mt-0.5">
-                    {currentBusiness.name} Business Credit
+                    {currentBusiness.id === 'tipsy-dumpling'
+                      ? 'Chinese Food & Dim Sum Credit'
+                      : 'Chiropractic Services Credit'}
                   </p>
-                  <p className="text-[11px] text-blue-600">Direct alignment</p>
+                  <p className="text-[11px] text-blue-600">Direct equal-value trade</p>
                 </div>
               </div>
 

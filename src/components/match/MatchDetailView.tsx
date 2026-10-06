@@ -24,6 +24,34 @@ export const MatchDetailView: React.FC<MatchDetailViewProps> = ({
 }) => {
   const { currentBusiness, partnerBusiness } = useApp();
 
+  const getOfferingForBusiness = (bizId: string) => {
+    if (bizId === 'tipsy-dumpling') {
+      return {
+        givesTitle: 'Chinese Food & Dim Sum Credit',
+        givesDesc: 'Handmade dim sum, Taiwanese specialties & craft teas',
+        needsTitle: 'Chiropractic & Wellness Services',
+        needsDesc: 'Spinal adjustments and recovery for kitchen team',
+      };
+    }
+    if (bizId === 'marin-spine') {
+      return {
+        givesTitle: 'Chiropractic Services & Wellness',
+        givesDesc: 'Integrative spinal decompression & postural rehab',
+        needsTitle: 'Chinese Food & Restaurant Credit',
+        needsDesc: 'Team dining and staff appreciation meals',
+      };
+    }
+    return {
+      givesTitle: 'Business Service Credit',
+      givesDesc: 'Verified goods & services credit',
+      needsTitle: 'Local B2B Services',
+      needsDesc: 'Complementary local exchange',
+    };
+  };
+
+  const currentInfo = getOfferingForBusiness(currentBusiness.id);
+  const partnerInfo = getOfferingForBusiness(partnerBusiness.id);
+
   return (
     <div className="max-w-3xl mx-auto space-y-6 animate-in fade-in duration-200">
       <button
@@ -65,7 +93,7 @@ export const MatchDetailView: React.FC<MatchDetailViewProps> = ({
             <p className="text-xs text-slate-500">{currentBusiness.city}, CA</p>
             <div className="mt-2 pt-2 border-t border-slate-100 text-xs">
               <span className="text-[10px] uppercase font-bold text-slate-400 block">Offers</span>
-              <span className="font-semibold text-slate-800">Restaurant Credit</span>
+              <span className="font-semibold text-slate-800">{currentInfo.givesTitle}</span>
             </div>
           </div>
 
@@ -94,12 +122,12 @@ export const MatchDetailView: React.FC<MatchDetailViewProps> = ({
             <p className="text-xs text-slate-500">{partnerBusiness.city}, CA</p>
             <div className="mt-2 pt-2 border-t border-slate-100 text-xs">
               <span className="text-[10px] uppercase font-bold text-slate-400 block">Offers</span>
-              <span className="font-semibold text-blue-600">Chiropractic Services</span>
+              <span className="font-semibold text-blue-600">{partnerInfo.givesTitle}</span>
             </div>
           </div>
         </div>
 
-        {/* Why This Works - Exact 6 Checklist Points from Spec */}
+        {/* Why This Works - Accurate attribution based on each business */}
         <div className="space-y-4">
           <h2 className="text-base font-bold text-slate-900 tracking-tight">
             Why this works:
@@ -107,12 +135,12 @@ export const MatchDetailView: React.FC<MatchDetailViewProps> = ({
 
           <div className="space-y-3">
             {[
-              `${currentBusiness.name} needs chiropractic services.`,
-              `${partnerBusiness.name} provides chiropractic services.`,
-              `${partnerBusiness.name} wants restaurant credit.`,
-              `${currentBusiness.name} offers restaurant credit.`,
-              `Both businesses support $100 exchanges.`,
-              `Both businesses are in Marin County.`,
+              `Tipsy Dumpling offers Chinese food & handmade dim sum credit.`,
+              `Marin Spine and Wellness provides chiropractic care & wellness services.`,
+              `Tipsy Dumpling needs chiropractic services for employee back wellness.`,
+              `Marin Spine and Wellness wants Chinese food & restaurant credit for team dining.`,
+              `Both businesses support $100 equal-value exchanges.`,
+              `Both businesses are located locally in Marin County.`,
             ].map((reason, idx) => (
               <div
                 key={idx}

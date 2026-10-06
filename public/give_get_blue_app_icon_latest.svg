@@ -1,0 +1,71 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="appIconBg" x1="60" y1="30" x2="450" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E8CFF" />
+      <stop offset="45%" stop-color="#0773FF" />
+      <stop offset="100%" stop-color="#0055F2" />
+    </linearGradient>
+
+    <!-- Ambient emblem shadow on blue surface -->
+    <filter id="emblemAmbientShadow" x="50" y="50" width="412" height="412" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#00267A" flood-opacity="0.28" />
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#001850" flood-opacity="0.20" />
+    </filter>
+
+    <!-- Overlap shadow where top loop tucks under central stroke -->
+    <filter id="overlapTuckShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="-4" dy="7" stdDeviation="7" flood-color="#002A7D" flood-opacity="0.32" />
+    </filter>
+  </defs>
+
+  <!-- iOS squircle rounded container -->
+  <rect width="512" height="512" rx="114" fill="url(#appIconBg)" />
+
+  <!-- White emblem group with shadow -->
+  <g filter="url(#emblemAmbientShadow)">
+    <!-- 1. Upper Loop: curves around clockwise from top-left into center -->
+    <path
+      d="M228 252 C196 226 182 178 206 138 C232 94 300 86 338 126 C362 152 368 188 344 220 C336 230 326 238 314 246"
+      stroke="#FFFFFF"
+      stroke-width="50"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <!-- 2. Lower counter loop with inner arrow pointing inward (like G / bottom &) -->
+    <path
+      d="M224 252 C184 274 150 324 164 374 C180 430 252 454 306 432 C350 414 378 368 358 324 L326 352"
+      stroke="#FFFFFF"
+      stroke-width="52"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <!-- Inward lower arrowhead -->
+    <path
+      d="M320 310 L378 322 L348 376 Z"
+      fill="#FFFFFF"
+      stroke="#FFFFFF"
+      stroke-width="6"
+      stroke-linejoin="round"
+    />
+
+    <!-- 3. Crossing Band (with tuck shadow) terminating in dynamic upper-right arrow -->
+    <g filter="url(#overlapTuckShadow)">
+      <!-- Main crossing diagonal stroke -->
+      <path
+        d="M174 366 C190 286 288 248 370 216"
+        stroke="#FFFFFF"
+        stroke-width="54"
+        stroke-linecap="round"
+      />
+      <!-- Upper-right Arrowhead -->
+      <path
+        d="M346 168 L418 214 L340 282 Z"
+        fill="#FFFFFF"
+        stroke="#FFFFFF"
+        stroke-width="8"
+        stroke-linejoin="round"
+      />
+    </g>
+  </g>
+</svg>

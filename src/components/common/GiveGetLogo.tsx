@@ -37,7 +37,7 @@ export const GiveGetLogo: React.FC<GiveGetLogoProps> = ({
 
   const { width, height } = iconSizes[size];
 
-  // The custom Give & Get interlocking exchange arrow ampersand
+  // The latest Give & Get interlocking exchange arrow ampersand
   const ExchangeAmpersandIcon = ({
     color = '#2563EB',
     sizePx = 32,
@@ -54,49 +54,54 @@ export const GiveGetLogo: React.FC<GiveGetLogoProps> = ({
       className="inline-block shrink-0 transition-transform duration-200"
       aria-label="Give and Get Exchange Symbol"
     >
-      {/* Upper loop flowing to arrow pointing top-right */}
+      {/* Upper loop flowing clockwise */}
       <path
-        d="M38 72 C 22 66, 16 48, 28 34 C 38 22, 58 20, 68 28 C 76 34, 76 46, 68 52 C 58 60, 44 64, 38 72"
-        stroke={color}
-        strokeWidth="11"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Lower counter loop with dynamic exchange arrow */}
-      <path
-        d="M48 48 C 62 44, 76 40, 84 32"
-        stroke={color}
-        strokeWidth="11"
-        strokeLinecap="round"
-      />
-      {/* Arrowhead top right */}
-      <path
-        d="M72 18 L 88 32 L 72 46"
-        fill={color}
-      />
-      {/* Bottom loop tail curving back with arrow pointing inward/forward */}
-      <path
-        d="M38 72 C 44 80, 58 84, 70 80 C 78 76, 80 68, 76 60 L 64 68"
+        d="M44 48 C36 42 34 33 39 25 C45 16 58 15 66 23 C71 28 72 35 67 42"
         stroke={color}
         strokeWidth="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      {/* Lower counter loop */}
       <path
-        d="M62 60 L 78 60 L 78 76 Z"
+        d="M42 48 C34 53 28 62 31 72 C35 83 49 87 60 83 C68 79 73 70 69 62 L63 67"
+        stroke={color}
+        strokeWidth="10.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Lower inward arrowhead */}
+      <path
+        d="M62 59 L74 61 L68 72 Z"
+        fill={color}
+      />
+      {/* Diagonal crossing band pointing upper-right */}
+      <path
+        d="M34 71 C38 56 56 48 72 42"
+        stroke={color}
+        strokeWidth="11"
+        strokeLinecap="round"
+      />
+      {/* Upper-right Arrowhead */}
+      <path
+        d="M68 33 L82 42 L67 55 Z"
         fill={color}
       />
     </svg>
   );
 
-  // App icon variant (blue rounded background with white interlocking ampersand)
+  // App icon variant: uses the latest blue squircle app icon
   if (variant === 'icon') {
     return (
       <div
-        className={`relative inline-flex items-center justify-center rounded-2xl bg-blue-600 shadow-sm text-white overflow-hidden transition-all duration-200 hover:bg-blue-700 ${className}`}
+        className={`relative inline-flex items-center justify-center rounded-2xl overflow-hidden shadow-sm transition-all duration-200 hover:shadow-md ${className}`}
         style={{ width: `${width}px`, height: `${height}px` }}
       >
-        <ExchangeAmpersandIcon color="#FFFFFF" sizePx={Math.round(width * 0.72)} />
+        <img
+          src="/give_get_blue_app_icon_latest.svg"
+          alt="Give and Get App Icon"
+          className="w-full h-full object-contain select-none"
+        />
       </div>
     );
   }
